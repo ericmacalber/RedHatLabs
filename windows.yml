@@ -11,11 +11,10 @@
       win_timezone:
         timezone: Romance Standard Time
 
-    - name: Ensure we wait long enough for the updates to be applied during reboot
+    - name: Run updates and ensure we wait long enough for be applied during reboot
       win_updates:
         reboot: yes
         reboot_timeout: 3600
-      ignore_errors: yes
 
     - name: Install git
       win_chocolatey:
@@ -60,5 +59,10 @@
 
   tasks:
     
-    - name: Get whoami information
+    - name: Get whoami information over SSH
       win_whoami:
+      register: me
+      
+    - name: Print whoami information
+      debug:
+       msg: "Output of whoami {{ me }}"

@@ -51,8 +51,7 @@
 
   tasks:
 
-    - name: Save the result of 'whoami' in 'whoami_out'
-      win_command: whoami
-      args:      
-        chdir: C:\
-      register: whoami_out
+    - win_shell: echo %HOMEDIR%
+      args:
+        executable: cmd
+      register: homedir_out

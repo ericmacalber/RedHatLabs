@@ -44,8 +44,8 @@
 - hosts: all
   gather_facts: false
   vars:
-    - ansible_user: ansible_user
-    - ansible_password: 1q2w3eZxc,.-
+    - ansible_ssh_pass: "{{ lookup('hashi_vault', 'secret=kv/my-secret:pass token=2GifXvG6OFUkrIyCSEUwPaJN url=http://10.0.0.5:8200')}}"
+    - ansible_user: "{{ lookup('hashi_vault', 'secret=kv/my-secret:user token=2GifXvG6OFUkrIyCSEUwPaJN url=http://10.0.0.5:8200')}}"
     - ansible_connection: ssh
     - ansible_port: 22
 

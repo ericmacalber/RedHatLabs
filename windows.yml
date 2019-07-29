@@ -58,6 +58,6 @@
     - ansible_port: 22
 
   tasks:
-
-    - win_shell: dir
-      register: homedir_out
+    
+    - name: Get whoami information
+      win_whoami:

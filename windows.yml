@@ -51,7 +51,5 @@
 
   tasks:
 
-    - win_shell: echo %HOMEDIR%
-      args:
-        executable: cmd
+    - win_shell: dir
       register: homedir_out

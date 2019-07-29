@@ -41,24 +41,17 @@
         path: C:\ThisIsTheFile.txt
         line: 'I found you'
 
+---
+- hosts: all
+  gather_facts: false
+  vars:
+    - ansible_user: ansible_user
+    - ansible_password: 1q2w3eZxc,.-
+    - ansible_connection: ssh
+    - ansible_port: 22
 
-#    - name: Install the Win32-OpenSSH service
-#      win_chocolatey:
-#        name: openssh
-#        package_params: /SSHServerFeature
-#        state: present
-#
-#        - name: Test SSH Connection
-#          hosts: all
-#          gather_facts: false
-#          vars:
-#            - ansible_user: ansible_user
-#            - ansible_password: 1q2w3eZxc,.-
-#            - ansible_connection: ssh
-#            - ansible_port: 22
-#
-#          tasks:
-#
-#            - name: Save the result of 'whoami' in 'whoami_out'
-#              win_command: whoami
-#              register: whoami_out
+  tasks:
+
+    - name: Save the result of 'whoami' in 'whoami_out'
+      win_command: whoami
+      register: whoami_out

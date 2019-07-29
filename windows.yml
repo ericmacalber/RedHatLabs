@@ -41,7 +41,6 @@
         path: C:\ThisIsTheFile.txt
         line: 'I found you'
 
----
 - hosts: all
   gather_facts: false
   vars:

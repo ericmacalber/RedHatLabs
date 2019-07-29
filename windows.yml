@@ -1,0 +1,64 @@
+---
+- hosts: all
+  vars:
+    - ansible_connection: winrm
+    - ansible_winrm_transport: ntlm
+    - ansible_port: 5985
+
+  tasks:
+
+    - name: Set timezone to 'Romance Standard Time' (GMT+01:00)
+      win_timezone:
+        timezone: Romance Standard Time
+
+    - name: Ensure we wait long enough for the updates to be applied during reboot
+      win_updates:
+        reboot: yes
+        reboot_timeout: 3600
+      ignore_errors: yes
+
+    - name: Install git
+      win_chocolatey:
+        name: git
+        state: present
+
+    - name: Install notepad++
+      win_chocolatey:
+        name: notepadplusplus
+
+    - name: Copy a file
+      win_copy:
+        src: ThisIsTheFile.txt
+        dest: c:\ThisIsTheFile.txt
+
+    - name: Find file
+      win_find:
+        paths: c:\
+        patterns: ['ThisIsTheFile.txt']
+
+    - name: Write in the file
+      win_lineinfile:
+        path: C:\ThisIsTheFile.txt
+        line: 'I found you'
+
+
+    - name: Install the Win32-OpenSSH service
+      win_chocolatey:
+        name: openssh
+        package_params: /SSHServerFeature
+        state: present
+
+        - name: Test SSH Connection
+          hosts: all
+          gather_facts: false
+          vars:
+            - ansible_user: ansible_user
+            - ansible_password: 1q2w3eZxc,.-
+            - ansible_connection: ssh
+            - ansible_port: 22
+
+          tasks:
+
+            - name: Save the result of 'whoami' in 'whoami_out'
+              win_command: whoami
+              register: whoami_out

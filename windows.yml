@@ -51,8 +51,8 @@
 - hosts: all
   gather_facts: false
   vars:
-    - ansible_ssh_pass: "{{ lookup('hashi_vault', 'secret=kv/my-secret:pass token=2GifXvG6OFUkrIyCSEUwPaJN url=http://10.0.0.5:8200')}}"
-    - ansible_user: "{{ lookup('hashi_vault', 'secret=kv/my-secret:user token=2GifXvG6OFUkrIyCSEUwPaJN url=http://10.0.0.5:8200')}}"
+    - ansible_ssh_pass: "{{ lookup('hashi_vault', 'secret=kv/my-secret:pass token=6lUy4B04i2ayDZPILBj72PRF url=http://10.0.0.5:8200')}}"
+    - ansible_user: "{{ lookup('hashi_vault', 'secret=kv/my-secret:user token=6lUy4B04i2ayDZPILBj72PRF url=http://10.0.0.5:8200')}}"
     - ansible_connection: ssh
     - ansible_shell_type: powershell
     - ansible_port: 22

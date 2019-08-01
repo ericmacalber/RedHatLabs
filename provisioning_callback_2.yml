@@ -1,0 +1,7 @@
+- name: Provisioning callback example
+  hosts: localhost
+
+  tasks:
+  - name: Execute callback request
+    debug:
+      msg: "{{ variable_1 }} and {{ variable_2 }} was received by a callback request."

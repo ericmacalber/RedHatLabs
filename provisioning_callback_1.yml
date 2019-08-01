@@ -1,0 +1,15 @@
+
+- name: Sample
+  hosts: all
+  vars:
+    message: "First message"
+  tasks:
+  - name: Launch callback request
+    uri:
+      url: https://10.0.0.10:443/api/v2/job_templates/5/callback/
+      method: XPOST
+      return_content: yes
+      body: {"host_config_key": "e0153620-9267-47d8-9cd4-637e79caa908"}'
+      headers:
+        - Content-Type: application/json'
+        - X-Forwarded-For: 10.0.0.11

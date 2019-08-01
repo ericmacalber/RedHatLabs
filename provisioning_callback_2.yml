@@ -7,5 +7,5 @@
   tasks:
   - name: Execute callback request
     debug:
-      msg: "{{ var_1 }} and {{ var_2 }} was received by a callback request."
+      msg: "Hi! this is {{ ansible_hostname }}. Variables '{{ var_1 }}' and '{{ var_2 }}' was received by a callback request."
    

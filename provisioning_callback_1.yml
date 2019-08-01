@@ -1,9 +1,9 @@
 - name: Provisioning callback example
   hosts: all
   vars:
-    job: 5
-    host_config_key: e0153620-9267-47d8-9cd4-637e79caa908
-    hostname: 10.0.0.10
+    job: 8
+    host_config_key: 45bb2629-a222-4ab8-9fef-65d9a311cb8e
+    hostname: 10.0.0.12
     var_1: "Hello"
     var_2: "How are you?"
 

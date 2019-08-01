@@ -1,15 +1,23 @@
-
-- name: Sample
+- name: Provisioning callback example
   hosts: all
   vars:
-    message: "First message"
+    job: 5
+    host_config_key: e0153620-9267-47d8-9cd4-637e79caa908
+    hostname: 10.0.0.10
+    var_1: "Hello"
+    var_2: "How are you?"
+
   tasks:
   - name: Launch callback request
     uri:
-      url: https://10.0.0.10:443/api/v2/job_templates/5/callback/
-      method: XPOST
-      return_content: yes
-      body: {"host_config_key": "e0153620-9267-47d8-9cd4-637e79caa908"}'
+      url: "https://{{ hostname }}:443/api/v2/job_templates/{{ job }}/callback/"
+      method: POST
+      force_basic_auth: no
+      body_format: json
       headers:
-        - Content-Type: application/json'
-        - X-Forwarded-For: 10.0.0.11
+        Content-Type: application/json
+        X-Forwarded-For: 10.0.0.10
+      body: {"host_config_key": "{{ host_config_key }}","extra_vars":[{"variable_1": "{{ var_1 }}"},{"variable_2": "{{ var_2 }}"}]}
+      return_content: yes
+      status_code: 201
+      validate_certs: no

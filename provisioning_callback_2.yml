@@ -8,8 +8,9 @@
   
   - name: Get operating System
     debug
-      msg: "ansible_distribution {{ hostvars[inventory_hostname].ansible_distribution }}"
+      msg: "{{ hostvars[inventory_hostname].ansible_distribution }}"
     register: os_version
+    
   - name: Execute callback request
     debug:
       msg: "Hi! this is a {{ os_version }} and you sent me the variables '{{ var_1 }}' and '{{ var_2 }}' by a callback request."

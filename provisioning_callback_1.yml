@@ -4,6 +4,7 @@
     job: 8
     host_config_key: 45bb2629-a222-4ab8-9fef-65d9a311cb8e
     hostname: 10.0.0.12
+    forwarder_host: localhost
     var_1: "Hello"
     var_2: "How are you?"
 
@@ -16,7 +17,7 @@
       body_format: json
       headers:
         Content-Type: application/json
-        X-Forwarded-For: "{{ hostname }}"
+        X-Forwarded-For: "{{ forwarder_host }}"
       body: {"host_config_key": "{{ host_config_key }}","extra_vars":[{"variable_1": "{{ var_1 }}"},{"variable_2": "{{ var_2 }}"}]}
       return_content: yes
       status_code: 201

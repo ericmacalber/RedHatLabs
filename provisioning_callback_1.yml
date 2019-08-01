@@ -16,7 +16,7 @@
       body_format: json
       headers:
         Content-Type: application/json
-        X-Forwarded-For: 10.0.0.10
+        X-Forwarded-For: "{{ hostname }}"
       body: {"host_config_key": "{{ host_config_key }}","extra_vars":[{"variable_1": "{{ var_1 }}"},{"variable_2": "{{ var_2 }}"}]}
       return_content: yes
       status_code: 201

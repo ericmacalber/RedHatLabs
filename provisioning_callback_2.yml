@@ -8,5 +8,5 @@
   
   - name: Execute callback request
     debug:
-      msg: "Hi! this is a {{ hostvars[inventory_hostname].ansible_distribution }} OS and you sent me the variables '{{ var_1 }}' and '{{ var_2 }}' by a callback request."
+      msg: "Hi! this is a {{ hostvars[inventory_hostname].ansible_distribution }} OS and you sent me the variables '{{ var_1 }}' and '{{ var_2 }}' by a provisioning callback request."
    

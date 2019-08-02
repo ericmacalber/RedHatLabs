@@ -7,5 +7,5 @@
   tasks:
   - name: Execute callback request
     debug:
-      msg: "Hi! this is a {{ hostvars[inventory_hostname].ansible_distribution }} OS and you sent me the variables '{{ var_1 }}' and '{{ var_2 }}' by a provisioning callback request."
+      msg: "Hi! You are connecting from a '{{ var_1 }}' and saying '{{ var_2 }}' by a provisioning callback request."
    

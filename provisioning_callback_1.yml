@@ -29,7 +29,6 @@
       url: "https://{{ hostname }}:443/api/v2/job_templates/{{ job }}/callback/"
       method: POST
       force_basic_auth: no
-      body_format: json
       headers:
         Content-Type: application/json
         X-Forwarded-For: "{{ forwarder_host }}"

@@ -1,5 +1,5 @@
 - name: Provisioning callback example
-  hosts: linux
+  hosts: all
   vars:
     job: 8
     host_config_key: 45bb2629-a222-4ab8-9fef-65d9a311cb8e
@@ -22,3 +22,4 @@
       return_content: yes
       status_code: 201
       validate_certs: no
+    delegate_to: localhost

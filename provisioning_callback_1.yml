@@ -17,7 +17,7 @@
       body_format: json
       headers:
         Content-Type: application/json
-        X-Forwarded-For: "{{ hostvars[inventory_hostname] }}"
+        X-Forwarded-For: "{{ hostvars[inventory_hostname].inventory_hostname }}"
       body: '{"host_config_key": "{{ host_config_key }}", "extra_vars": "{\"variable_1\": \"{{ hostvars[inventory_hostname].ansible_distribution }}\",\"variable_2\": \"{{ var_1 }}\"}"}'
       return_content: yes
       status_code: 201
@@ -31,7 +31,7 @@
       force_basic_auth: no
       headers:
         Content-Type: application/json
-        X-Forwarded-For: "{{ hostvars[inventory_hostname] }}"
+        X-Forwarded-For: "{{ hostvars[inventory_hostname].inventory_hostname }}"
       body: '{"host_config_key":"{{ host_config_key }}","extra_vars":{"variable_1":"{{ hostvars[inventory_hostname].ansible_distribution }}","variable_2":"{{ var_2 }}"}}'
       return_content: yes
       status_code: 201

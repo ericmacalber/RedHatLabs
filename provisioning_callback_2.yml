@@ -1,16 +1,5 @@
-- name: Provisioning callback example Linux
+- name: Provisioning callback example 
   hosts: linux
-  vars:
-    - var_1: "{{ variable_1 }}"
-    - var_2: "{{ variable_2 }}"
-
-  tasks:
-  - name: Execute callback request
-    debug:
-      msg: "Hi! this is a {{ hostvars[inventory_hostname].ansible_distribution }} OS and you sent me the variables '{{ var_1 }}' and '{{ var_2 }}' by a provisioning callback request."
-   
-- name: Provisioning callback example Windows
-  hosts: windows
   vars:
     - var_1: "{{ variable_1 }}"
     - var_2: "{{ variable_2 }}"

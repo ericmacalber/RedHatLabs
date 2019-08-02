@@ -9,7 +9,7 @@
     var_2: "How are you?"
 
   tasks:
-  - name: Launch callback request
+  - name: Launch callback request to Linux Host
     uri:
       url: "https://{{ hostname }}:443/api/v2/job_templates/{{ job }}/callback/"
       method: POST
@@ -24,7 +24,7 @@
       validate_certs: no
     when: inventory_hostname == 'localhost'
     
-  - name: Launch callback request
+  - name: Launch callback request to Windows host
     win_uri:
       url: "https://{{ hostname }}:443/api/v2/job_templates/{{ job }}/callback/"
       method: POST

@@ -1,6 +1,23 @@
-- name: Provisioning callback example
-  hosts: localhost
+- name: Provisioning callback example Linux
+  hosts: linux
   vars:
+    var_1: "{{ variable_1 }}"
+    var_2: "{{ variable_2 }}"
+
+  tasks:
+  
+  - name: Execute callback request
+    debug:
+      msg: "Hi! this is a {{ hostvars[inventory_hostname].ansible_distribution }} OS and you sent me the variables '{{ var_1 }}' and '{{ var_2 }}' by a provisioning callback request."
+   
+- name: Provisioning callback example Windows
+  hosts: windows
+  vars:
+    - ansible_ssh_pass: "{{ lookup('hashi_vault', 'secret=kv/my-secret:pass token=6lUy4B04i2ayDZPILBj72PRF url=http://10.0.0.5:8200')}}"
+    - ansible_user: "{{ lookup('hashi_vault', 'secret=kv/my-secret:user token=6lUy4B04i2ayDZPILBj72PRF url=http://10.0.0.5:8200')}}"
+    - ansible_connection: ssh
+    - ansible_shell_type: powershell
+    - ansible_port: 22
     var_1: "{{ variable_1 }}"
     var_2: "{{ variable_2 }}"
 

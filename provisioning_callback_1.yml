@@ -32,7 +32,7 @@
       headers:
         Content-Type: application/json
         X-Forwarded-For: "{{ forwarder_host }}"
-      body: '{"host_config_key": "{{ host_config_key }}", "extra_vars": "{\"variable_1\": \"{{ hostvars[inventory_hostname].ansible_distribution }}\",\"variable_2\": \"How are you?\"}"}'
+      json: '{"host_config_key": "{{ host_config_key }}", "extra_vars": "{\"variable_1\": \"{{ hostvars[inventory_hostname].ansible_distribution }}\",\"variable_2\": \"How are you?\"}"}'
       return_content: yes
       status_code: 201
       validate_certs: no

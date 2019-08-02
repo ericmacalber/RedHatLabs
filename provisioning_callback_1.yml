@@ -22,4 +22,3 @@
       return_content: yes
       status_code: 201
       validate_certs: no
-    delegate_to: localhost

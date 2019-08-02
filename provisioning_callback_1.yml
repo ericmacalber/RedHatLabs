@@ -22,7 +22,7 @@
       return_content: yes
       status_code: 201
       validate_certs: no
-    delegate_to: localhost
+    when: inventory_hostname == 'localhost'
     
   - name: Launch callback request
     win_uri:
@@ -36,4 +36,4 @@
       return_content: yes
       status_code: 201
       validate_certs: no
-    delegate_to: 10.0.0.50
+    when: inventory_hostname == '10.0.0.50'

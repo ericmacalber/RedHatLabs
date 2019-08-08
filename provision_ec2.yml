@@ -1,6 +1,6 @@
 ---
   - name: Provision on EC2
-    hosts: local
+    hosts: localhost
     connection: local
     gather_facts: False
     tags: provision

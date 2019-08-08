@@ -22,6 +22,8 @@
           name: "{{ security_group }}"
           description: Security Group for ansible_engine_test Servers
           region: "{{ region }}"
+          aws_secret_key: "{{ AWS_SECRET_ACCESS_KEY }}"
+          aws_access_key: "{{ AWS_ACCESS_KEY_ID }}"
           rules:
             - proto: tcp
               from_port: 22
@@ -41,6 +43,8 @@
  
       - name: Launch the EC2 Instances
         ec2:
+          aws_secret_key: "{{ AWS_SECRET_ACCESS_KEY }}"
+          aws_access_key: "{{ AWS_ACCESS_KEY_ID }}"
           group: "{{ security_group }}"
           instance_type: "{{ instance_type}}"
           image: "{{ image }}"
@@ -74,6 +78,8 @@
  
       - name: Tag instance
         ec2_tag:
+          aws_secret_key: "{{ AWS_SECRET_ACCESS_KEY }}"
+          aws_access_key: "{{ AWS_ACCESS_KEY_ID }}"
           resource: "{{ item.id }}"
           region: "{{ region }}"
           state: present

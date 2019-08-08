@@ -1,7 +1,7 @@
 - name: Sample
   hosts: all
   vars:
-    message: "The very first message"
+    message: "The very very very very first message"
   tasks:
     - name: Message
       debug:

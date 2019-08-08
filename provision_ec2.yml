@@ -1,7 +1,6 @@
 ---
   - name: Provision on EC2
     hosts: localhost
-    connection: local
     gather_facts: False
     tags: provision
  
@@ -86,3 +85,7 @@
             tags:
               Name: "{{ tag_name }}"
         with_items: "{{ ec2.instances }}"
+        
+        name: Get info
+        debug:
+          msg: "{{ ec2.instances }}"

@@ -1,16 +1,15 @@
 ---
   - name: Provision on EC2
     hosts: localhost
-    tags: provision
  
     vars:
-      instance_type: t2.micro
-      security_group: rafanch_sec_group
-      image: ami-8cff51fb
-      keypair: rafsanch
-      region: eu-west-1
-      subnet: subnet-459a9231
-      tag_name: ansible_engine_test
+      instance_type: "t2.micro"
+      security_group: "rafanch_sec_group"
+      image: "ami-8cff51fb"
+      keypair: "rafsanch"
+      region: "eu-west-1"
+      subnet: "subnet-459a9231"
+      tag_name: "ansible_engine_test"
       ec2_count: 1
  
     tasks:

@@ -6,4 +6,3 @@
     - name: Message
       debug:
         msg: "{{ message }}"
-

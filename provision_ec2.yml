@@ -11,10 +11,10 @@
       subnet: "subnet-459a9231"
       tag_name: "ansible_engine_test"
       ec2_count: 1
-      tower_hostname: "ec2-54-171-242-141.eu-west-1.compute.amazonaws.com"
-      tower_api_token: "0F7V6ku5xCcTEJ2nWa3y1yXNeCvhZR"
-      host_config_key: "9724412a-8b3e-4621-abf4-c0f9c3d118ef"
-      callback_job: 9
+      tower_hostname: "ec2-18-203-255-176.eu-west-1.compute.amazonaws.com"
+      tower_api_token: "yGpMnHC77m44QJjujQR2RqcdLQnDLG"
+      host_config_key: "7f6dac4f-a0b5-4c8f-8544-f27861cc9310"
+      callback_job: 8
  
     tasks:
  

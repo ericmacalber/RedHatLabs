@@ -82,7 +82,7 @@
         
       - name: Add to inventory by rest api
         uri:
-          url: "https://{{ tower_hostname }}/api/v2/inventories/3/hosts/"
+          url: "https://{{ tower_hostname }}/api/v2/inventories/2/hosts/"
           method: POST
           force_basic_auth: no
           body_format: json

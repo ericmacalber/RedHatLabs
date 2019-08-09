@@ -13,8 +13,8 @@
       ec2_count: 1
       tower_hostname: "ec2-54-171-242-141.eu-west-1.compute.amazonaws.com"
       tower_api_token: "0F7V6ku5xCcTEJ2nWa3y1yXNeCvhZR"
-      host_config_key: 
-      callback_job:
+      host_config_key: "9724412a-8b3e-4621-abf4-c0f9c3d118ef"
+      callback_job: 9
  
     tasks:
  

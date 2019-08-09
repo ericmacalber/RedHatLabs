@@ -11,6 +11,10 @@
       subnet: "subnet-459a9231"
       tag_name: "ansible_engine_test"
       ec2_count: 1
+      tower_hostname: "ec2-54-171-242-141.eu-west-1.compute.amazonaws.com"
+      tower_api_token: "0F7V6ku5xCcTEJ2nWa3y1yXNeCvhZR"
+      host_config_key: 
+      callback_job:
  
     tasks:
  
@@ -86,14 +90,29 @@
         
       - name: Add to inventory by rest api
         uri:
-          url: "https://ec2-54-171-242-141.eu-west-1.compute.amazonaws.com/api/v2/inventories/3/hosts/"
+          url: "https://{{ tower_hostname }}/api/v2/inventories/3/hosts/"
           method: POST
           force_basic_auth: no
           body_format: json
           headers:
             Content-Type: application/json
-            Authorization: Bearer 0F7V6ku5xCcTEJ2nWa3y1yXNeCvhZR
+            Authorization: Bearer {{ tower_api_token }}
           body: '{"name":"{{ item.public_ip }}"}'
+          return_content: yes
+          status_code: 201
+          validate_certs: no
+        with_items: "{{ ec2.instances }}"
+      
+      - name: Launch callback request to launch provision job
+        uri:
+          url: "https://{{ tower_hostname }}:443/api/v2/job_templates/{{ callback_job }}/callback/"
+          method: POST
+          force_basic_auth: no
+          body_format: json
+          headers:
+            Content-Type: application/json
+            X-Forwarded-For: "{{ item.public_ip }}"
+          body: '{"host_config_key": "{{ host_config_key }}", "extra_vars": "{\"new_hostname\": \"{{ item.public_ip }}\"}"}'
           return_content: yes
           status_code: 201
           validate_certs: no

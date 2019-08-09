@@ -1,0 +1,12 @@
+- name: Prepare host
+  hosts: all
+  vars:
+    target: "{{ new_hostname }}"
+
+  tasks:
+
+  - name: upgrade all packages
+    yum:
+      name: '*'
+      state: latest
+    when: inventory_hostname == "{{ target }}"

@@ -61,14 +61,6 @@
         debug:
           msg: "{{ item.public_ip }}"
         with_items: "{{ ec2.instances }}"
- 
-      # - name: Add the EC2 instance to the inventory
-      #   lineinfile:
-      #     dest: "./inventory"
-      #     regexp: "{{ item.public_ip }}"
-      #     insertafter: "[ansible_engine_test]"
-      #     line: "{{ item.public_ip }}"
-      #   with_items: "{{ ec2.instances }}"
   
       - name: Wait for SSH daemon to start
         wait_for:

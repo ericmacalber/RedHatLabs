@@ -1,3 +1,15 @@
+# Created AWS credentials, Machine credentials and Github credentials 
+# Created Application for token in tower (password-based, public)
+# Created token for user admin with write scope
+# Created inventory with only localhost and ansible_connection: local variable
+# Added HTTP_X_FORWARDED_FOR in settings / system / remote host headers
+# Created Github project
+# Created one template per playbook. 
+#  - provision_ec2 include AWS key and secret in extra_vars. Use AWS credentials.
+#  - provision_ec2_update needs extra_vars checked in order to get extra vars from callback request. Use machine credentials.
+#
+# TODO: Use vault for store secrets
+
 - name: Prepare host
   hosts: all
   vars:

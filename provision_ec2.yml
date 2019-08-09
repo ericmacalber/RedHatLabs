@@ -84,6 +84,17 @@
             Name: "{{ tag_name }}"
         with_items: "{{ ec2.instances }}"
         
-      - name: Get info
-        debug:
-          msg: "{{ ec2.instances }}"
+      - name: Add to inventory by rest api
+        uri:
+          url: "https://ec2-54-171-242-141.eu-west-1.compute.amazonaws.com/api/v2/inventories/3/hosts/"
+          method: POST
+          force_basic_auth: no
+          body_format: json
+          headers:
+            Content-Type: application/json
+            Authorization: Bearer 0F7V6ku5xCcTEJ2nWa3y1yXNeCvhZR
+          body: '{"name":"pepe"}'
+          return_content: yes
+          status_code: 201
+          validate_certs: no
+        with_items: "{{ ec2.instances }}"

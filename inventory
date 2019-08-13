@@ -2,4 +2,4 @@
 192.168.42.1
 
 [rhel_roles]
-10.0.0.39
+10.0.0.39 ansible_user=vagrant

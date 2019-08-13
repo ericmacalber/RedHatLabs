@@ -1,9 +1,12 @@
 - hosts: rhel_roles
   vars:
+
     network_connections:
       - name: eth2
+        interface_name: eth2
         type: ethernet
         mac: "08:00:27:f3:f6:ab"
+        state: up
         autoconnect: yes
         ip:
           auto6: no
@@ -26,15 +29,14 @@
         interfaces: [ eth2 ]
         transport: UDPv4
         delay: 0.000010
-    SELinux_type: targeted
-    SELinux_mode: permissive
-    SELinux_change_running: 1
+    selinux_policy: targeted
+    selinux_state: permissive
     core_collector: "makedumpfile -l --message-level 2 -d 31 -c"
     path: /var/crash
     system_action: reboot # reboot | halt | poweroff | shell
       
   roles:
-    - linux-system-roles.network
-    - linux-system-roles.timesync
-    - linux-system-roles.selinux
-    - linux-system-roles.kdump
+    - { role: linux-system-roles.network, become: yes }
+    - { role: linux-system-roles.timesync, become: yes }
+    - { role: linux-system-roles.selinux, become: yes }
+    - { role: linux-system-roles.kdump, become: yes }

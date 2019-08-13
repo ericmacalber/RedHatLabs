@@ -1,0 +1,98 @@
+# Installation
+
+pip3 install ansible-tower-cli
+sudo pip3 install ansible-tower-cli
+
+# Configuration
+
+tower-cli config
+tower-cli config host tower.domain.local
+tower-cli config username admin
+tower-cli config password password
+tower-cli config verify_ssl false
+
+# RBAC
+# Organization
+tower-cli organization create --name RedHat
+
+# Teams
+tower-cli team create --name devops --organization RedHat
+tower-cli team create --name developers --organization RedHat
+
+# Users
+tower-cli user create --username developer1  --password password --email rafsanch@redhat.com
+tower-cli user create --username developer2  --password password --email rafsanch@redhat.com
+tower-cli user create --username devops1  --password password --email rafsanch@redhat.com
+tower-cli user create --username devops2  --password password --email rafsanch@redhat.com
+
+# Team associations
+tower-cli team associate --team developers --user developer1
+tower-cli team associate --team developers --user developer2
+tower-cli team associate --team devops --user devops1
+tower-cli team associate --team devops --user devops2
+
+# Permissions
+tower-cli role grant --type admin --group devops --project 4
+tower-cli role grant --type use --team developers --project 4
+
+##############################################################################################################################################################################################################################################
+
+# Copy all assets from one instance to another (Cherry pick)
+
+[zaskan@x1 haproxy]$ tower-cli receive --tower-host node1.domain.local --all | tower-cli send --tower-host node2.domain.local
+
+USER [admin] *********************************************************************************************************************************************************************************************************************************
+Asset up to date
+
+USER [developer1] ****************************************************************************************************************************************************************************************************************************
+Asset up to date
+
+USER [developer2] ****************************************************************************************************************************************************************************************************************************
+Asset up to date
+
+USER [devops1] *******************************************************************************************************************************************************************************************************************************
+Asset up to date
+
+USER [devops2] *******************************************************************************************************************************************************************************************************************************
+Asset up to date
+
+ORGANIZATION [Default] ***********************************************************************************************************************************************************************************************************************
+Asset up to date
+All roles are up to date
+
+ORGANIZATION [RedHat] ************************************************************************************************************************************************************************************************************************
+Asset up to date
+All roles are up to date
+
+TEAM [developers] ****************************************************************************************************************************************************************************************************************************
+Asset up to date
+
+TEAM [devops] ********************************************************************************************************************************************************************************************************************************
+Asset up to date
+
+CREDENTIAL [Demo Credential] *****************************************************************************************************************************************************************************************************************
+Asset up to date
+All roles are up to date
+
+PROJECT [Demo Project] ***********************************************************************************************************************************************************************************************************************
+Asset up to date
+All roles are up to date
+All schedules are up to date
+
+INVENTORY [Demo Inventory] *******************************************************************************************************************************************************************************************************************
+Asset up to date
+All inventory host are up to date
+All inventory groups are up to date
+All inventory inventory_source are up to date
+All roles are up to date
+
+JOB TEMPLATE [Demo Job Template] *************************************************************************************************************************************************************************************************************
+Asset up to date
+Survey up to date
+All extra creds are up to date
+All labels are up to date
+All roles are up to date
+All schedules are up to date
+
+PLAY RECAP ***********************************************************************************************************************************************************************************************************************************
+    ok=27    changed=0    warnings=0    failed=0

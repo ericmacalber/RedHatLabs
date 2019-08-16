@@ -169,7 +169,7 @@
           headers:
             Content-Type: application/json
             Authorization: Bearer {{ tower_api_token }}
-          body: '{"credential_type":2, "user":1, "name":"SCM", "kind":"scm", "inputs": {"username":"correorms@gmail.com", "password": "V1t4m1n!g"}}'
+          body: '{"credential_type":2, "user":1, "name":"SCM", "kind":"scm", "inputs": {"username":"", "password": ""}}'
           return_content: yes
           status_code: 201
           validate_certs: no

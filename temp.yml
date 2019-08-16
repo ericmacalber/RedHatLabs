@@ -1,0 +1,32 @@
+---
+  - name: Test Tower API Resources methods
+    hosts: localhost
+    gather_facts: no
+    connection: local
+ 
+    vars:
+      tower_hostname: "10.0.0.12"
+      tower_api_token: "udOYB1ouVswOEZKJeaSNkULAz74ZiK"
+      test_host_address: "10.0.0.39"
+      license: '{"eula_accepted": "true" ,"subscription_name": "Enterprise Tower up to 1000 Nodes", "features": {}, "instance_count": 1000, "trial": false, "contact_email": "rafsanch@redhat.com", "company_name": "RedHat", "license_type": "enterprise", "contact_name": "Rafael Minguillon Sanchez", "license_date": 1609477200, "license_key": "c1b1314dc3511d91a2c8517c102c771d1957c2420c84c9866837ad56528f9d33"}'
+ 
+    tasks:
+      - name: Create SCM credentials
+        uri:
+          url: "https://{{ tower_hostname }}/api/v2/credentials/"
+          method: POST
+          force_basic_auth: no
+          body_format: json
+          headers:
+            Content-Type: application/json
+            Authorization: Bearer {{ tower_api_token }}
+          body: '{"credential_type":2, "user":1, "name":"SCM", "kind":"scm", "inputs": {"username":"correorms@gmail.com", "password": "V1t4m1n!g"}}'
+          return_content: yes
+          status_code: 201
+          validate_certs: no
+        register: scm_credentials
+      
+      - name: Get credential ID
+        debug:
+          #scm_credential_id: "{{ scm_credentials | json_query('json.id') }}"
+          msg: "{{ scm_credentials }}"

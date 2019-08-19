@@ -32,23 +32,22 @@
       - name: Get token
         set_fact:
           tower_api_token: "{{ token_json | json_query('json.token') }}"
-          
-      - name: Create a template
+
+
+      - name: Create instance group
         uri:
-          url: "https://{{ tower_hostname }}/api/v2/job_templates/"
+          url: "https://{{ tower_hostname }}/api/v2/instance_groups/"
           method: POST
           force_basic_auth: no
           body_format: json
           headers:
             Content-Type: application/json
             Authorization: Bearer {{ tower_api_token }}
-          body: '{"project": 6, "playbook": "hello_world.yml", "inventory": 2,  "name": "API created template"}'
+          body: '{"name":"API 2Creatwedds instance group"}'
           return_content: yes
           status_code: 201
           validate_certs: no
-        register: template
+        register: instance_group     
 
-      - name: Get template ID
-        set_fact:
-          project_id: "{{ template | json_query('json.id')}}"
-
+      - debug:
+          msg: "{{ instance_group  | json_query('json.id')}}"

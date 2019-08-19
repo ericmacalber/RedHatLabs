@@ -17,7 +17,7 @@
       yum:
          state: present
          name: "{{ item }}-{{ ivzRhelKern7 }}"
-       with_items:
+      with_items:
         - "{{ kernPackages.stdout_lines }}" 
 
 

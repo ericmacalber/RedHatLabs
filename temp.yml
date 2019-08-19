@@ -6,12 +6,14 @@
  
     vars:
       tower_hostname: "10.0.0.12"
-      tower_api_token: "udOYB1ouVswOEZKJeaSNkULAz74ZiK"
       test_host_address: "10.0.0.39"
-      license: '{"eula_accepted": "true" ,"subscription_name": "Enterprise Tower up to 1000 Nodes", "features": {}, "instance_count": 1000, "trial": false, "contact_email": "rafsanch@redhat.com", "company_name": "RedHat", "license_type": "enterprise", "contact_name": "Rafael Minguillon Sanchez", "license_date": 1609477200, "license_key": "c1b1314dc3511d91a2c8517c102c771d1957c2420c84c9866837ad56528f9d33"}'
  
     tasks:
-      - name: Get Api token
+
+      - name: Include Vault file
+        include_vars: mycreds.yml
+
+      - name: Generate Api token
         uri:
           url: "https://{{ tower_hostname }}/api/v2/users/1/tokens/"
           method: POST
@@ -20,8 +22,8 @@
           headers:
             Content-Type: application/json
           body: '{"description": "API token" ,"application": null, "scope": "write"}'
-          url_username: "admin"
-          url_password: "password"
+          url_username: "{{ admin_username }}"
+          url_password: "{{ admin_password }}"
           return_content: yes
           status_code: 201
           validate_certs: no
@@ -30,3 +32,23 @@
       - name: Get token
         set_fact:
           tower_api_token: "{{ token_json | json_query('json.token') }}"
+          
+      - name: Create a template
+        uri:
+          url: "https://{{ tower_hostname }}/api/v2/job_templates/"
+          method: POST
+          force_basic_auth: no
+          body_format: json
+          headers:
+            Content-Type: application/json
+            Authorization: Bearer {{ tower_api_token }}
+          body: '{"project": 6, "playbook": "hello_world.yml", "inventory": 2,  "name": "API created template"}'
+          return_content: yes
+          status_code: 201
+          validate_certs: no
+        register: template
+
+      - name: Get template ID
+        set_fact:
+          project_id: "{{ template | json_query('json.id')}}"
+

@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks: 
+  
+  - name: Create backup
+    shell: "/var/lib/awx/setup/setup.sh -b"

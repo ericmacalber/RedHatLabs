@@ -3,5 +3,5 @@
   tasks: 
   
   - name: Create backup
-    shell: "/root/ansible-tower-setup-3.5.1-1/setup.sh -b"
+    shell: "/home/vagrant/ansible-tower-setup-3.5.1-1/setup.sh -b"
     become: yes

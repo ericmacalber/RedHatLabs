@@ -1,7 +1,8 @@
 ---
 - hosts: all
+  become: yes
+  become_method: sudo
   tasks: 
   
   - name: Create backup
     shell: "/root/ansible-tower-setup-3.5.1-1/setup.sh -b"
-    become: yes

@@ -1,7 +1,0 @@
----
-- hosts: all
-  tasks: 
-  
-  - name: Create backup
-    shell: "/home/vagrant/ansible-tower-setup-3.5.1-1/setup.sh -b"
-    become: yes

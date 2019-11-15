@@ -1,8 +1,0 @@
-- name: Sample
-  hosts: all
-  vars:
-    message: "The first message"
-  tasks:
-    - name: Message
-      debug:
-        msg: "{{ message }}"

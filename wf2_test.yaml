@@ -1,0 +1,9 @@
+- hosts: localhost
+  gather_facts: no
+  vars:
+    master_host: app.local
+
+  tasks:
+  - name: Debug
+    debug:
+      mas: "{{ machine }}"

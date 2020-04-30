@@ -6,4 +6,4 @@
   tasks:
   - name: Debug
     debug:
-      mas: "{{ machine }}"
+      msg: "{{ machine }}"

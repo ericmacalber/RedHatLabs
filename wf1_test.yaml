@@ -3,8 +3,8 @@
   hosts: localhost
   tasks:
   - set_stats:
-    data:
-      hostname: localhost
-      user: ansible
-      machine:
-        password: "password"
+      data:
+        hostname: localhost
+        user: ansible
+        machine:
+          password: "password"

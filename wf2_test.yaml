@@ -1,4 +1,4 @@
-- hosts: localhost
+- hosts: 192.168.100.232
   gather_facts: no
   vars:
     master_host: app.local

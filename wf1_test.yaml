@@ -2,7 +2,7 @@
 - name: get pmp resource
   hosts: localhost
   tasks:
-  set_stats:
+  - set_stats:
     hostname: localhost
     user: ansible
     machine:

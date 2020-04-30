@@ -3,7 +3,7 @@
   hosts: localhost
   tasks:
   - set_stats:
-    hostname: localhost
-    user: ansible
-    machine:
-      password: "password"
+      hostname: localhost
+      user: ansible
+      machine:
+        password: "password"

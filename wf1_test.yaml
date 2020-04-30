@@ -1,0 +1,8 @@
+---
+- name: get pmp resource
+  hosts: localhost
+  vars:
+    hostname: localhost
+    user: ansible
+    machine:
+      password: "password"

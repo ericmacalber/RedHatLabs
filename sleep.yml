@@ -1,0 +1,8 @@
+- name: Sample
+  hosts: all
+  vars:
+    timer: 240
+  tasks:
+    - name: Sleep
+      command: "sleep {{ timer }}"
+        

@@ -1,7 +1,7 @@
 - name: Sample
   hosts: all
   vars:
-    timer: 30
+    timer: 180
   tasks:
     - name: Sleep
       command: "sleep {{ timer }}"

@@ -1,0 +1,9 @@
+- name: Sample
+  hosts: all
+  vars:
+    message: "The first message"
+  tasks:
+    - name: URI
+      uri:
+        url: https://foaas.com/asshole/:rafa
+        return_content: yes

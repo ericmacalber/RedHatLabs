@@ -7,7 +7,7 @@
       #environment:
       #  no_proxy: "foaas.com"
       uri:
-        url: https://foaas.com/asshole/:rafa
+        url: https://foaas.com/cool/:rafa
         return_content: yes
         use_proxy: no
       register: response

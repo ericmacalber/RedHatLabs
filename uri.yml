@@ -7,3 +7,6 @@
       uri:
         url: https://foaas.com/asshole/:rafa
         return_content: yes
+      register: response
+    - debug:
+        msg: "{{ response }}"

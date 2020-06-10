@@ -10,6 +10,9 @@
         url: https://foaas.com/cool/:rafa
         return_content: yes
         use_proxy: no
+        headers:
+          Content-Type: application/json
+          Accept: application/json
       register: response
     - debug:
         msg: "{{ response }}"

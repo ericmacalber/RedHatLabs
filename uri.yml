@@ -10,3 +10,11 @@
       register: response
     - debug:
         msg: "{{ response }}"
+    - shell: export
+      register: variables
+    - debug:
+        msg: "{{ variables }}"
+    - shell: ip route | grep default
+      register: gateway
+    - debug:
+        msg: "{{ gateway }}"

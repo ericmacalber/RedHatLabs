@@ -4,11 +4,12 @@
     message: "The first message"
   tasks:
     - name: URI
-      environment:
-        no_proxy: "foaas.com"
+      #environment:
+      #  no_proxy: "foaas.com"
       uri:
         url: https://foaas.com/asshole/:rafa
         return_content: yes
+        use_proxy: no
       register: response
     - debug:
         msg: "{{ response }}"

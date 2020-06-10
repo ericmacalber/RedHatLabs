@@ -7,8 +7,6 @@
       uri:
         url: https://foaas.com/asshole/:rafa
         return_content: yes
-        body: application/json
-        body_format: json
       register: response
     - debug:
         msg: "{{ response }}"

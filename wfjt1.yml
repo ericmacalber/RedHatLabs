@@ -10,5 +10,5 @@
     
     - name: Create inventory group oracle cloud machine 
       add_host:
-        name: ""
+        name: "NEW_GROUP"
         groups: "ORACLE_CLOUD_GROUP"

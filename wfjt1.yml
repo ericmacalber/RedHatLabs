@@ -7,9 +7,9 @@
         data:
           ts: "soyuntimestamp"
       register: the_timestamp_stat
-      failed_when: the_timestamp_stat is defined
     
     - name: Create inventory group oracle cloud machine 
       add_host:
         name: "NEW_GROUP"
         groups: "ORACLE_CLOUD_GROUP"
+      failed_when: the_timestamp_stat is defined

@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: "Set stats for "
+      set_stats:
+        data:
+          ts: "soyuntimestamp"
+      register: the_timestamp_stat
+    
+    - name: Create inventory group oracle cloud machine 
+      add_host:
+        name: ""
+        groups: "ORACLE_CLOUD_GROUP"

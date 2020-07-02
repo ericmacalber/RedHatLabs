@@ -10,6 +10,5 @@
     
     - name: Create inventory group oracle cloud machine 
       add_host:
-        name: "NEW_GROUP"
+        name: ""
         groups: "ORACLE_CLOUD_GROUP"
-      failed_when: the_timestamp_stat is defined

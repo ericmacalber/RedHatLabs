@@ -1,5 +1,7 @@
 - name: Sample
   hosts: all
+  become: yes
+  become_user: root
   vars:
     message: "The first message"
   tasks:

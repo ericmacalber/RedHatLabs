@@ -9,4 +9,4 @@
         msg: "{{ message }}"
     
     - name: Audit
-      shell: tail -2 /etc/audit/auditd.rules
+      shell: tail -2 /etc/audit/audit.rules

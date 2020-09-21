@@ -3,11 +3,6 @@
   become: yes
   vars:
     message: "The first message"
-  collections:
-    - name: rubrikinc.cdm
-      version: 1.0.3
-    - name: netapp.ontap
-      version: 20.2.0
   tasks:
     - name: Message
       debug:

@@ -2,5 +2,7 @@
 collections:
 - name: rubrikinc.cdm
   version: 1.0.3
+  source: https://cloud.redhat.com/api/automation-hub/
 - name: netapp.ontap
   version: 20.2.0
+  source: https://cloud.redhat.com/api/automation-hub/

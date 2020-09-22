@@ -8,5 +8,5 @@
       debug:
         msg: "{{ message }}"
     
-    - name: Audit
-      shell: tail -2 /etc/audit/audit.rules
+ #   - name: Audit
+ #     shell: tail -2 /etc/audit/audit.rules

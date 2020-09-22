@@ -1,6 +1,6 @@
 - name: Sample
-  hosts: all
-  become: yes
+  hosts: localhost
+  #become: yes
   vars:
     message: "The first message"
   tasks:

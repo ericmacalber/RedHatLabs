@@ -4,5 +4,5 @@
 
     - name: Variable 1
       debug:
-        msg: "This is the variable 1: {{ ansible_distribution_file_search_string }}"
+        msg: "This is the variable 1: {{ my_fact }}"
 

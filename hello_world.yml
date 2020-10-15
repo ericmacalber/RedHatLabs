@@ -2,11 +2,11 @@
   hosts: localhost
   #become: yes
   vars:
-    message: "The first message"
+    message: "Precedence"
   tasks:
     - name: Message
       debug:
-        msg: "{{ message }}"
+        msg: "{{ message }} {{ tipo }}"
     
  #   - name: Audit
  #     shell: tail -2 /etc/audit/audit.rules

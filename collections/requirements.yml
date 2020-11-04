@@ -6,5 +6,5 @@ collections:
 - name: netapp.ontap
   version: 20.2.0
   source: https://cloud.redhat.com/api/automation-hub/
-- name: awx.awx
-  source: https://galaxy.ansible.com/
+- name: ansible.tower
+  source: https://cloud.redhat.com/api/automation-hub/

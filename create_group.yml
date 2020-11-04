@@ -1,8 +1,6 @@
 ---
-
-#Add Host Windows to inventory WIN_POSTINSTALL
 - name: Add tower host (Windows)
-  tower_host:
+  ansible.tower.tower_host:
     name: "test1"
     tower_oauthtoken: "tAQzfc5bzNIC0X5jUbSZxXaetwzElg"
     validate_certs: no
@@ -15,7 +13,7 @@
 
 #Add group Windows version to Host Windows 
 - name: Add tower group (Windows)
-  tower_group:
+  ansible.tower.tower_group:
     name: "test_group"
     tower_oauthtoken: "tAQzfc5bzNIC0X5jUbSZxXaetwzElg"
     validate_certs: no

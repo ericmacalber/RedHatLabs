@@ -6,3 +6,6 @@ collections:
 - name: netapp.ontap
   version: 20.2.0
   source: https://cloud.redhat.com/api/automation-hub/
+- name: awx.awx
+  version: 15.0.1
+  source: https://cloud.redhat.com/api/automation-hub/

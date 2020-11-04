@@ -7,4 +7,5 @@ collections:
   version: 20.2.0
   source: https://cloud.redhat.com/api/automation-hub/
 - name: awx.awx
-
+  version: 14.0.0
+  source: https://cloud.redhat.com/api/automation-hub/

@@ -5,4 +5,4 @@
   collections:
     - ansible.tower
   roles:
-    - {role: create_group} 
+    - create_group

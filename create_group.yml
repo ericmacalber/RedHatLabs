@@ -2,7 +2,7 @@
 
 #Add Host Windows to inventory WIN_POSTINSTALL
 - name: Add tower host (Windows)
-  ansible.tower.tower_host:
+  tower_host:
     name: "{{ vm_hostname }}"
     tower_oauthtoken: "f3V1KLmyEmerkspRnIMt7e1BoOEBOH"
     validate_certs: no
@@ -25,7 +25,7 @@
 
 #Add Host Linux to inventory LINUX_POSTINSTALL
 - name: Add tower host (Linux)
-  ansible.tower.tower_host:
+  tower_host:
     name: "{{ vm_hostname }}"
     tower_oauthtoken: "f3V1KLmyEmerkspRnIMt7e1BoOEBOH"
     validate_certs: no
@@ -39,7 +39,7 @@
 
 #Add group Windows version to Host Windows 
 - name: Add tower group (Windows)
-  ansible.tower.tower_group:
+  tower_group:
     name: "{{ group_windows }}"
     tower_oauthtoken: "f3V1KLmyEmerkspRnIMt7e1BoOEBOH"
     validate_certs: no
@@ -50,7 +50,7 @@
 
 #Add group Linux version to Host Linux
 - name: Add tower group (RHEL version)
-  ansible.tower.tower_group:
+  tower_group:
     name: "{{ rhel_version_fact }}"
     tower_oauthtoken: "f3V1KLmyEmerkspRnIMt7e1BoOEBOH"
     validate_certs: no
@@ -61,7 +61,7 @@
 
 #Add group Linux localisation to Host Linux
 - name: Add tower group (RHEL localisation)
-  ansible.tower.tower_group:
+  tower_group:
     name: "{{ rhel_localisation_fact }}"
     tower_oauthtoken: "f3V1KLmyEmerkspRnIMt7e1BoOEBOH"
     validate_certs: no

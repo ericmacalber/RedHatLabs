@@ -1,8 +1,14 @@
 ---
 - name: Test
   hosts: localhost
+  connection: httpapi
   #become: yes
   collections:
-    - ansible.tower
+    - fortinet.fortios
   tasks:
   - name: Add tower host (Windows)
+    fortinet.fortios.fortios_firewall_address:
+      vdom:  test
+      state: "present"
+      firewall_address:
+        allow_routing: "enable"

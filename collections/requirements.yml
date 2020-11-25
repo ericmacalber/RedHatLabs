@@ -1,3 +1,4 @@
+---
 collections:
   # Install a collection from Ansible Automation Hub.
   #- name: ansible.tower
@@ -15,4 +16,5 @@ collections:
   #  source: https://galaxy.ansible.com/
     
   - name: fortinet.fortios
+    version: 6.0.5
     source: https://galaxy.ansible.com/

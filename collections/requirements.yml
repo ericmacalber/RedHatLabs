@@ -1,12 +1,12 @@
 ---
 collections:
-  - name: fortinet.fortios
-    version: 6.0.5
-    source: https://cloud.redhat.com/api/automation-hub/
-  # Install a collection from Ansible Automation Hub.
-  #- name: ansible.tower
-  #  version: '3.7.3'
+  #- name: fortinet.fortios
+  #  version: 6.0.5
   #  source: https://cloud.redhat.com/api/automation-hub/
+  # Install a collection from Ansible Automation Hub.
+  - name: ansible.tower
+    version: '3.7.3'
+    source: https://cloud.redhat.com/api/automation-hub/
 
   # Install a collection from Ansible Galaxy.
   #- name: servicenow.servicenow

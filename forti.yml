@@ -1,0 +1,8 @@
+---
+- name: Test
+  hosts: localhost
+  #become: yes
+  collections:
+    - ansible.tower
+  tasks:
+  - name: Add tower host (Windows)

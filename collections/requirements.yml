@@ -3,16 +3,16 @@ collections:
   #  version: 6.0.5
   #  source: https://cloud.redhat.com/api/automation-hub/
   # Install a collection from Ansible Automation Hub.
-  - name: ansible.posix
-    source: https://cloud.redhat.com/api/automation-hub/
+  #- name: ansible.posix
+  #  source: https://cloud.redhat.com/api/automation-hub/
 
   # Install a collection from Ansible Galaxy.
   #- name: servicenow.servicenow
   #  version: '1.0.2'
   #  source: https://galaxy.ansible.com/
 
-  # Install a collection from Ansible Galaxy.
-  #- name: community.general
-  #  version: '1.2.0'
-  #  source: https://galaxy.ansible.com/
+   Install a collection from Ansible Galaxy.
+  - name: community.general
+    version: '1.2.0'
+    source: https://galaxy.ansible.com/
 

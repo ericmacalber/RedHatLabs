@@ -1,14 +1,24 @@
 ---
-- name: Test
-  hosts: localhost
+- hosts: leaf01
   connection: httpapi
-  #become: yes
   collections:
-    - fortinet.fortios
+  - fortinet.fortios
+  vars:
+    ansible_httpapi_use_ssl: yes
+    ansible_httpapi_validate_certs: no
+    ansible_httpapi_port: 443
+    vdom: "root"
+    object_name: "TEST-TEST"
+    object_ip: "200.200.200.200"
+    object_comment: "TEST-TEST"
   tasks:
-  - name: Add tower host (Windows)
-    fortinet.fortios.fortios_firewall_address:
-      vdom:  test
-      state: "present"
-      firewall_address:
-        allow_routing: "enable"
+
+    - name: Configure global attributes.
+      fortios_firewall_address:
+          vdom: "{{ vdom }}"
+          state: "present"
+          firewall_address:
+            name: "{{ object_name }}"
+            subnet: "{{ object_ip }} "
+            comment: "{{ object_comment }}"
+

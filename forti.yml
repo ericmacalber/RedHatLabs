@@ -12,7 +12,12 @@
     object_ip: "200.200.200.200"
     object_comment: "TEST-TEST"
   tasks:
-
+  
+    - fortios_facts:
+      vdom:  "{{ vdom }}"
+      gather_subset:
+        - fact: 'system_status_select'
+        
     - name: Configure global attributes.
       fortios_firewall_address:
           vdom: "{{ vdom }}"

@@ -1,0 +1,11 @@
+- name: Where I am
+  hosts: all
+  tasks:
+    - name: Where I am
+      shell: hostname -i
+      register: host
+      delegate_to: localhost
+      
+    - name: Print results
+      debug:
+        msg: "{{ host }}"

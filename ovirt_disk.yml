@@ -1,4 +1,5 @@
 - hosts: localhost
+  collections: ovirt.ovirt
   tasks:
   - ovirt_disk:
       name: myvm_disk

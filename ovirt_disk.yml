@@ -1,6 +1,6 @@
 - hosts: localhost
   tasks:
-  - ovirt.ovirt.ovirt_disk:
+  - ovirt_disk:
       name: myvm_disk
       vm_name: rhel7
       size: 10GiB

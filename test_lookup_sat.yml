@@ -6,4 +6,4 @@
       debug:
         msg: "{{ foreman_params.rafa }}"
     - debug:
-        msg: "{{ lookup('vars','foreman_params[\"rafa\"]') }}"
+        msg: "{{ lookup('vars','foreman_params.[0].rafa') }}"

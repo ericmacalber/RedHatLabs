@@ -1,0 +1,7 @@
+- name: Sample
+  hosts: localhost
+  #become: yes
+  tasks:
+    - name: Message
+      debug:
+        msg: "{{ rafa }}"

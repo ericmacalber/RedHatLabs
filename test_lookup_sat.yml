@@ -5,3 +5,5 @@
     - name: Message
       debug:
         msg: "{{ foreman_params.rafa }}"
+    - debug:
+        msg: "{{ lookup('vars','rafa') }}"

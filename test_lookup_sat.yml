@@ -4,4 +4,4 @@
   tasks:
     - name: Message
       debug:
-        msg: "{{ foreman_params. }}"
+        msg: "{{ foreman_params.rafa }}"

@@ -6,4 +6,6 @@
       debug:
         msg: "{{ foreman_params.rafa }}"
     - debug:
-        msg: "{{ lookup('vars','foreman_params' ,'rafa') }}"
+        msg: "{{ item }}"
+      with_items: "{{ lookup('vars','foreman_params') }}"
+      when: item == "rafa" 

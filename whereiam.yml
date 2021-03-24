@@ -9,3 +9,10 @@
     - name: Print results
       debug:
         msg: "{{ host }}"
+        
+    - name: Export
+      shell: export
+      register: export
+      
+    - debug:
+        msg: "{{ export }}"
